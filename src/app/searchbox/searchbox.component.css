@@ -1,0 +1,14 @@
+.searchbox{
+    width: 100%;    
+    
+    padding-top: 1.2em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-bottom: 1.2em;
+    
+}
+
+.searchbox input
+{
+    border-radius: 22px !important;
+}

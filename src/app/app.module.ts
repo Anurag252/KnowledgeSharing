@@ -2,8 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { firebaseConfig } from '../environments/environment'
+import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
+import { environment } from '../environments/environment'
+// for AngularFireDatabase
+//import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+// for AngularFireAuth
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +23,13 @@ import { ProfileboxComponent } from './profilebox/profilebox.component';
 import { ContentheadingComponent } from './contentheading/contentheading.component';
 import { ContentdataComponent } from './contentdata/contentdata.component';
 import { LoginComponent } from './login/login.component';
-import { AuthenticationServiceService } from './authentication-service.service';
+import { AuthService } from './service/authentication-service.service';
+import { RouterModule } from '@angular/router';
+import { rootRouterConfig } from './app.router';
+import { NavtabComponent } from './navtab/navtab.component';
+import { HeadertabComponent } from './headertab/headertab.component';
+import { FirebaseService } from './service/firebase.service';
+
 
 @NgModule({
   declarations: [
@@ -31,15 +43,20 @@ import { AuthenticationServiceService } from './authentication-service.service';
     ProfileboxComponent,
     ContentheadingComponent,
     ContentdataComponent,
-    LoginComponent
+    LoginComponent,
+    NavtabComponent,
+    HeadertabComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),
+    AppRoutingModule,
+    RouterModule.forRoot(rootRouterConfig, { useHash: false }),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule,
+    AngularFireAuthModule,  
+    AngularFireDatabaseModule  
   ],
-  providers: [AuthenticationServiceService],
+  providers: [AuthService,FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

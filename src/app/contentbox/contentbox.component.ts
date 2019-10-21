@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-contentbox',
@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contentbox.component.css']
 })
 export class ContentboxComponent implements OnInit {
+@Input()
+  public heading :string;
 
+  @Input()
+public contentText : string;
   constructor() { }
 
   ngOnInit() {

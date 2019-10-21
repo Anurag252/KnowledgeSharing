@@ -1,0 +1,12 @@
+.contentbox
+{
+    min-height: 9em;
+    max-height: 30em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: white;
+    
+
+}

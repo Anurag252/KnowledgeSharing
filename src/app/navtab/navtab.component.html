@@ -1,0 +1,7 @@
+<div *ngIf="(response$ | async)?.users.length > 0">   
+  <ul class="nav nav-tabs">    
+    <li *ngFor="let topic of response.users[0].topic;let i = index" 
+    [ngClass]= "{'active':(selectedItem == topic.name) }" >
+      <a  (click)="changeTopic(topic.name)">{{topic.name}}</a></li>      
+  </ul>
+</div>

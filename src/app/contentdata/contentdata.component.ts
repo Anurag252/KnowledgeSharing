@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-contentdata',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contentdata.component.css']
 })
 export class ContentdataComponent implements OnInit {
-
+@Input()
+  public  contentText : string
   constructor() { }
 
   ngOnInit() {

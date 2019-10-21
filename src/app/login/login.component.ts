@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationServiceService } from '../authentication-service.service'
+import { AuthService } from '../service/authentication-service.service'
 import { Router, Params } from '@angular/router';
 
 @Component({
@@ -9,18 +9,28 @@ import { Router, Params } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   
-  constructor( public authService : AuthenticationServiceService , private router: Router) { }
+  constructor( public authService : AuthService , private router: Router) { }
 
   ngOnInit() {
   }
-   user : any
-  loginWithGoogle()
-  {
-    this.user = this.authService.doGoogleLogin().then(res =>  {
-      this.router.navigate(['/user']);
-    })
+   
+
+register()
+{
+  this.authService.doRegister({"email":"abc@gmail.com","password":"hgghhg"});
+}
+login()
+{
+  this.authService.doLogin({});
+}
+
+loginWithGoogle()
+  {  
+this.authService.doGoogleLogin()
+.then(res => {
+  this.router.navigate(['/user']);
+})
   }
-    
-  }
+}
 
 

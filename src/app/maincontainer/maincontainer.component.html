@@ -1,3 +1,7 @@
-<p>
-  maincontainer works!
-</p>
+<div class="mainContainer">
+        <app-navtab></app-navtab>
+        <app-searchbox></app-searchbox> 
+        <ng-container *ngIf="(subject$ | async)?.response.length > 0">
+                <app-contentbox  *ngFor="let content of contents" [contentText]= "content.text"  [heading]="content.header"></app-contentbox>
+        </ng-container>
+</div>
