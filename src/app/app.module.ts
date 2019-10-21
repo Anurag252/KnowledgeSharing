@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { firebaseConfig } from '../environments/environment'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +16,8 @@ import { ContentboxComponent } from './contentbox/contentbox.component';
 import { ProfileboxComponent } from './profilebox/profilebox.component';
 import { ContentheadingComponent } from './contentheading/contentheading.component';
 import { ContentdataComponent } from './contentdata/contentdata.component';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationServiceService } from './authentication-service.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +30,16 @@ import { ContentdataComponent } from './contentdata/contentdata.component';
     ContentboxComponent,
     ProfileboxComponent,
     ContentheadingComponent,
-    ContentdataComponent
+    ContentdataComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthenticationServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,52 @@
+<div class="container" style="height: 100%;">
+  <div class="row" style="height:100px">
+
+  </div>
+  <div class="row" style="border-color: black;border:solid;border-width: 1px;height:500px;border-radius: 10px">
+    <div class="col-sm-2">
+
+    </div>
+
+    <div class="col-sm-8" style="padding-top: 40px">
+      <form>
+       <div class="form-group">
+        <div class="row">
+            <h3>Username</h3>
+          </div>
+          <div class="row">
+            <input style="height: 40px" placeholder="Username" class="form-control" type="text"/>
+          </div>
+          <div class="row" style="padding-top: 40px">
+            <h3>Password</h3>
+          </div>
+          <div class="row">
+              <input style="height: 40px" placeholder="Password" class="form-control" type="password"/>         
+          </div>
+          <div class="row" style="padding-top: 40px">
+              <button type="submit" class="btn btn-primary">Login</button>
+              <span>&nbsp;&nbsp;</span>
+              <span><a href="">or create an account</a></span>
+          </div>          
+          <p style="padding-top: 10px;margin-bottom: 5px">OR</p>
+          <div class="row" style="padding-top: -2px;">
+              <button class="loginBtn loginBtn--google"  (click)="loginWithGoogle()">
+                  Login with Google
+              </button>
+              <button class="loginBtn loginBtn--facebook">
+                  Login with Facebook
+                </button>
+          </div>
+          <p>user is here :- {{user | json}}</p>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-2">
+
+    </div>
+    
+    
+  </div>
+<div class="row" style="height:100px">
+
+</div>
+</div>
