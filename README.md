@@ -1,6 +1,8 @@
 This application is hosted at https://daily-blogging.firebaseapp.com/login
 
 # KnowledgeManagement
+This project is a hobby project to be used to publish personal blogs . Users can request rights using Google and facebook providers
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
